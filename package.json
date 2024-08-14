@@ -4,12 +4,13 @@
   "description": "API de veículos automotivos para consulta",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "nodemon src/app.js"
   },
   "keywords": [],
   "author": "@Devrenj e @Ulysses-lorde",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "nodemon": "^3.1.4"
   }
 }
