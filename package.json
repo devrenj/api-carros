@@ -4,7 +4,7 @@
   "description": "API de veículos automotivos para consulta",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "@Devrenj e @Ulysses-lorde",
