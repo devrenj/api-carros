@@ -4,11 +4,11 @@
   "description": "API de veículos automotivos para consulta",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "@Devrenj e @Ulysses-lorde",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.19.2"
   }
