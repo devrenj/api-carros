@@ -1,11 +1,10 @@
 const express = require('express');
 const router = express.Router();
-
 const { client } = require('../config/db')
 
 
 // Rota para criar uma nova marca
-router.post('/brands', async (req, res, next) => {
+router.post('/', async (req, res, next) => {
     try {
       const { brandName, countryOrigin, yearFoundation, founder } = req.body;
   
@@ -23,9 +22,13 @@ router.post('/brands', async (req, res, next) => {
 });
   
 // Rota para buscar uma marca pelo nome
-router.get('/brands', async (req, res, next) => {
+router.get('/', async (req, res, next) => {
     try {
       const { brandName } = req.query; // Supondo que você está buscando por nome
+
+      if (!brandName) {
+        return res.status(400).json({ message: 'Brand name is required' });
+      }
   
       const result = await client.query(
         `SELECT * FROM brands WHERE brand_name = $1`,
@@ -36,11 +39,28 @@ router.get('/brands', async (req, res, next) => {
         return res.status(404).json({ message: 'Brand not found' });
       }
   
-      res.json(result.rows);
+      res.json(result.rows[0]);
     } catch (error) {
       console.log(error);
       next(error);
     }
+});
+
+router.get('/test', (req, res) => {
+  try {
+    // Pega o valor do parâmetro de consulta 'result'
+    const { result } = req.query;
+
+    // Verifica se 'result' está presente
+    if (!result) {
+      return res.status(400).json({ message: 'No result provided in the query parameters' });
+    }
+
+    // Retorna o valor do parâmetro de consulta
+    res.status(200).json({ result });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 });
 
 module.exports = router
