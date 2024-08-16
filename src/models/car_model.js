@@ -1,5 +1,5 @@
 class CarModel {
-  constructor({ id, name, brandId}) {
+  constructor({ modelId, name, brandId}) {
     this.modelId = modelId;
     this.name = name
     this.BrandId = brandId
