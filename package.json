@@ -4,13 +4,16 @@
   "description": "API de veículos automotivos para consulta",
   "main": "index.js",
   "scripts": {
+    "prestart": "node src/config/initDB.js",
     "start": "nodemon src/app.js"
   },
   "keywords": [],
   "author": "@Devrenj e @Ulysses-lorde",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "nodemon": "^3.1.4"
+    "nodemon": "^3.1.4",
+    "pg": "^8.12.0"
   }
 }

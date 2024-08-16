@@ -2,7 +2,6 @@
 
 class Brand {
   constructor({ brandId, name, countryOrigin, yearFoundation, founder }) {
-    // this.brandId = brandId ?? uuidv4();
     this.BrandId = brandId
     this.name = name
     this.countryOrigin = countryOrigin
