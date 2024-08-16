@@ -1,8 +1,7 @@
 const express = require('express')
-const brandRouter = require('./routes/brand')
-
 const app = express()
-const PORT = process.env.PORT || 3000
+const brandRouter = require('./routes/brand')
+require('dotenv').config()
 
 // Middleware para usar JSON no body das requisições
 app.use(express.json())
@@ -13,8 +12,11 @@ app.get('/', async (req, res) => {
 })
 
 // Usar o brandRouter para rotas que começão com /brand
-app.use('/brand', brandRouter)
+app.use('/brands', brandRouter)
 
+const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
   console.log(`Servidor rodando em: http://localhost:${PORT}`)
 })
+
+module.exports = app
