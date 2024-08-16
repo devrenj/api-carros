@@ -1,6 +1,7 @@
-const { express } = require("express")
-const router = express.Router()
-const { client } = require('../db')
+const express = require('express');
+const router = express.Router();
+
+const { client } = require('../config/db')
 
 
 // Rota para criar uma nova marca
@@ -35,7 +36,7 @@ router.get('/brands', async (req, res, next) => {
         return res.status(404).json({ message: 'Brand not found' });
       }
   
-      res.json(result.rows[0]);
+      res.json(result.rows);
     } catch (error) {
       console.log(error);
       next(error);
